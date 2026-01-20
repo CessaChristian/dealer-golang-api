@@ -1,0 +1,32 @@
+user,vehicle,brand,type,price
+admin,camry,Toyota,Sedan,250000000.00
+admin,Honda Mobilio RS,Honda,MPV,240000000.00
+admin,Mitsubishi Pajero Sport Dakar,Mitsubishi,SUV,660000000.00
+admin,Suzuki Baleno,Suzuki,Hatchback,260000000.00
+admin,Suzuki GSX-R150,Suzuki Motor,Motor Sport,32000000.00
+admin,Toyota Fortuner GR,Toyota,SUV,580000000.00
+admin,Yamaha Aerox 155 Connected,Yamaha,Motor Matic,28000000.00
+Agus Pratama,Kawasaki Ninja ZX-25R,Kawasaki,Motor Sport,105000000.00
+Agus Pratama,Mitsubishi Pajero Sport Dakar,Mitsubishi,SUV,660000000.00
+Agus Pratama,Suzuki Baleno,Suzuki,Hatchback,260000000.00
+Agus Pratama,Toyota Fortuner GR,Toyota,SUV,580000000.00
+Agus Pratama,Yamaha Aerox 155 Connected,Yamaha,Motor Matic,28000000.00
+Budi Santoso,camry,Toyota,Sedan,250000000.00
+Budi Santoso,Honda Mobilio RS,Honda,MPV,240000000.00
+Budi Santoso,Honda Supra X 125,Honda Motor,Motor Bebek,22000000.00
+Budi Santoso,Honda Vario 160,Honda Motor,Motor Matic,27000000.00
+Budi Santoso,Mitsubishi Pajero Sport Dakar,Mitsubishi,SUV,660000000.00
+Budi Santoso,Toyota Fortuner GR,Toyota,SUV,580000000.00
+Budi Santoso,Yamaha Aerox 155 Connected,Yamaha,Motor Matic,28000000.00
+cessa,camry,Toyota,Sedan,250000000.00
+cessa,Daihatsu Xenia R Deluxe,Daihatsu,MPV,220000000.00
+cessa,Honda Mobilio RS,Honda,MPV,240000000.00
+cessa,Honda Supra X 125,Honda Motor,Motor Bebek,22000000.00
+cessa,Honda Vario 160,Honda Motor,Motor Matic,27000000.00
+cessa,Mitsubishi Pajero Sport Dakar,Mitsubishi,SUV,660000000.00
+cessa,Toyota Fortuner GR,Toyota,SUV,580000000.00
+Rizky Hadi,Kawasaki Ninja ZX-25R,Kawasaki,Motor Sport,105000000.00
+Rizky Hadi,Mitsubishi Pajero Sport Dakar,Mitsubishi,SUV,660000000.00
+Siti Aminah,Kawasaki Ninja ZX-25R,Kawasaki,Motor Sport,105000000.00
+Siti Aminah,Mitsubishi Pajero Sport Dakar,Mitsubishi,SUV,660000000.00
+Siti Aminah,Toyota Fortuner GR,Toyota,SUV,580000000.00
