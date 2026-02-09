@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"net/http"
+
 	"dealer_golang_api/internal/middleware"
 	"dealer_golang_api/internal/service/auth"
 	"dealer_golang_api/internal/service/brand"
@@ -25,6 +27,22 @@ func RegisterRoutes(e *echo.Echo, db *pgxpool.Pool) {
 
 	authService := auth.NewService(userRepo)
 	authController := auth.NewController(authService)
+
+	// health cek
+	e.GET("/dealer/health", func(c echo.Context) error {
+		status := "healthy"
+		dbStatus := "connected"
+
+		if err := db.Ping(c.Request().Context()); err != nil {
+			status = "unhealthy"
+			dbStatus = "disconnected"
+		}
+
+		return c.JSON(http.StatusOK, map[string]string{
+			"status":   status,
+			"database": dbStatus,
+		})
+	})
 
 	e.POST("/dealer/register", authController.Register)
 	e.POST("/dealer/login", authController.Login)

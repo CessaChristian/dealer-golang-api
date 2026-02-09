@@ -1,5 +1,5 @@
 package favorite
 
 type AddFavoriteRequest struct {
-	VehicleID int `json:"vehicle_id" validate:"required"`
+	VehicleID int `json:"vehicle_id" validate:"required,gt=0"`
 }

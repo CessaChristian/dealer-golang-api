@@ -23,6 +23,10 @@ func (c *Controller) AddFavorite(ctx echo.Context) error {
 		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
 	}
 
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
+	}
+
 	if err := c.Svc.AddFavorite(userID, req.VehicleID); err != nil {
 		return utils.Error(ctx, 400, err.Error())
 	}

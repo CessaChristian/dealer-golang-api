@@ -82,3 +82,23 @@ CREATE TABLE payment_detail (
     note                    TEXT NULL
 );
 
+--  INDEXES 
+-- vehicles: FK columns + low-stock query
+CREATE INDEX idx_vehicles_brand_id ON vehicles(brand_id);
+CREATE INDEX idx_vehicles_type_id ON vehicles(type_id);
+CREATE INDEX idx_vehicles_stock ON vehicles(stock) WHERE stock <= 5;
+
+-- favorites: query by vehicle_id (user_id sudah ter-cover oleh composite PK)
+CREATE INDEX idx_favorites_vehicle_id ON favorites(vehicle_id);
+
+-- transactions: FK + filter by status
+CREATE INDEX idx_transactions_user_id ON transactions(user_id);
+CREATE INDEX idx_transactions_status ON transactions(status);
+
+-- transaction_items: FK columns
+CREATE INDEX idx_transaction_items_transaction_id ON transaction_items(transaction_id);
+CREATE INDEX idx_transaction_items_vehicle_id ON transaction_items(vehicle_id);
+
+-- payment_detail: FK column
+CREATE INDEX idx_payment_detail_transaction_id ON payment_detail(transaction_id);
+

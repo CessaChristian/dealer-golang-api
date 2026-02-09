@@ -21,6 +21,10 @@ func (c *Controller) Create(ctx echo.Context) error {
 		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
 	}
 
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
+	}
+
 	if err := c.Svc.Create(req); err != nil {
 		return utils.Error(ctx, 400, err.Error())
 	}
@@ -32,7 +36,13 @@ func (c *Controller) Update(ctx echo.Context) error {
 	id := utils.ToInt(ctx.Param("id"))
 
 	var req UpdateVehicleRequest
-	ctx.Bind(&req)
+	if err := ctx.Bind(&req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
+	}
+
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
+	}
 
 	if err := c.Svc.Update(id, req); err != nil {
 		return utils.Error(ctx, 400, err.Error())
@@ -43,7 +53,13 @@ func (c *Controller) Update(ctx echo.Context) error {
 
 func (c *Controller) Import(ctx echo.Context) error {
 	var req ImportVehicleRequest
-	ctx.Bind(&req)
+	if err := ctx.Bind(&req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
+	}
+
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
+	}
 
 	if err := c.Svc.ImportCar(req); err != nil {
 		return utils.Error(ctx, 400, err.Error())

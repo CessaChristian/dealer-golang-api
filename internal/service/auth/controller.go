@@ -21,6 +21,10 @@ func (c *Controller) Register(ctx echo.Context) error {
 		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
 	}
 
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
+	}
+
 	if err := c.Svc.Register(req); err != nil {
 		return utils.Error(ctx, 400, err.Error())
 	}
@@ -32,6 +36,10 @@ func (c *Controller) Login(ctx echo.Context) error {
 	var req LoginRequest
 	if err := ctx.Bind(&req); err != nil {
 		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
+	}
+
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
 	}
 
 	token, user, err := c.Svc.Login(req)

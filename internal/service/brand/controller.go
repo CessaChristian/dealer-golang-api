@@ -22,8 +22,8 @@ func (c *Controller) Create(ctx echo.Context) error {
 		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
 	}
 
-	if req.Name == "" {
-		return utils.Error(ctx, http.StatusBadRequest, "brand name required")
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
 	}
 
 	if err := c.Svc.Create(req.Name); err != nil {

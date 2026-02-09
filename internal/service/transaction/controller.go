@@ -29,6 +29,10 @@ func (c *Controller) CreateTransaction(ctx echo.Context) error {
 		return utils.Error(ctx, http.StatusBadRequest, "invalid request")
 	}
 
+	if err := utils.ValidateStruct(req); err != nil {
+		return utils.Error(ctx, http.StatusBadRequest, err.Error())
+	}
+
 	resp, err := c.Svc.CreateTransaction(ctx.Request().Context(), userID, req)
 	if err != nil {
 		return utils.Error(ctx, http.StatusBadRequest, err.Error())

@@ -33,7 +33,7 @@ func (s *Service) Register(req RegisterRequest) error {
 		Name: 	  req.Name,
 		Email:    req.Email,
 		Password: hashed,
-		Role:     "user",
+		Role:     "customer",
 	}
 
 	return s.UserRepo.Create(context.Background(), newUser)
